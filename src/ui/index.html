@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' mmx: data: blob:; style-src 'self' 'unsafe-inline'; media-src 'self' mmx: blob: mediastream:; img-src 'self' mmx: data: blob:">
+<title>MontajeMX</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header id="top">
+  <div class="brand">
+    <img src="logo.svg" width="30" height="30" alt="">
+    <span>Montaje<b>MX</b></span>
+  </div>
+  <div class="grp">
+    <button data-act="new" title="Proyecto nuevo (Ctrl+N)">Nuevo</button>
+    <button data-act="open" title="Abrir proyecto (Ctrl+O)">Abrir</button>
+    <button data-act="save" title="Guardar (Ctrl+S)">Guardar</button>
+  </div>
+  <div class="grp">
+    <button data-act="undo" title="Deshacer (Ctrl+Z)">Deshacer</button>
+    <button data-act="redo" title="Rehacer (Ctrl+Y)">Rehacer</button>
+  </div>
+  <div class="grp">
+    <button data-act="settings" title="Resolución, fotogramas y notas">Proyecto</button>
+    <button data-act="capture" title="Grabar pantalla, cámara, voz o stop motion">Capturar</button>
+    <button data-act="multicam" title="Sincroniza hasta 6 cámaras y cambia de ángulo en vivo">Multicámara</button>
+    <button data-act="quick" title="Arma una película automática con los medios de la biblioteca">Película rápida</button>
+  </div>
+  <div id="pname"></div>
+  <button data-act="about" class="ghost" title="Acerca de">?</button>
+  <button data-act="dvd" title="Crea un DVD con menú y capítulos">DVD</button>
+  <button data-act="export" class="primary" title="Exportar (Ctrl+E)">Exportar</button>
+</header>
+
+<main>
+  <section id="lib">
+    <nav id="lib-tabs"></nav>
+    <div id="lib-body"></div>
+  </section>
+
+  <section id="player">
+    <div id="stage"><canvas id="view" width="960" height="540"></canvas><img id="exact" alt="" hidden><canvas id="scope" width="256" height="90" hidden></canvas></div>
+    <div id="transport">
+      <span id="tc">00:00:00:00</span>
+      <div class="grp">
+        <button data-act="home" title="Inicio (Home)">|◀</button>
+        <button data-act="prev" title="Fotograma anterior (←)">◀</button>
+        <button data-act="play" id="btn-play" class="round" title="Reproducir / pausar (Espacio)">▶</button>
+        <button data-act="next" title="Fotograma siguiente (→)">▶</button>
+        <button data-act="end" title="Final (End)">▶|</button>
+      </div>
+      <div class="grp right">
+        <select id="quality" title="Calidad de la vista previa"><option value="480">Rápida</option><option value="960" selected>Normal</option><option value="1440">Alta</option></select>
+        <button data-act="scope" title="Histograma RGB">Histograma</button>
+        <button data-act="exact" title="Renderiza este fotograma con el motor de exportación (incluye efectos que solo se aplican al exportar)">Fotograma exacto</button>
+        <button data-act="snapshot" title="Guardar el fotograma actual como PNG">Instantánea</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="insp"><div id="insp-body"></div></section>
+</main>
+
+<section id="tl">
+  <div id="tl-bar">
+    <button data-act="split" title="Dividir en el cursor (S)">Dividir</button>
+    <button data-act="delete" title="Eliminar clip (Supr)">Eliminar</button>
+    <button data-act="dup" title="Duplicar clip (Ctrl+D)">Duplicar</button>
+    <button data-act="freeze" title="Congelar el fotograma del cursor durante 2 s">Congelar</button>
+    <button data-act="censor" title="Crea una región de mosaico sobre el clip (rostros, matrículas)">Censurar</button>
+    <span class="sep"></span>
+    <label class="chk"><input type="checkbox" id="snap" checked> Imán</label>
+    <label class="chk"><input type="checkbox" id="ripple"> Cerrar huecos</label>
+    <label class="chk" title="Baja el volumen de las demás pistas cuando suena una pista marcada como Voz"><input type="checkbox" id="duck"> Atenuar con voz</label>
+    <span class="grow"></span>
+    <button data-act="addtrack" title="Añadir pista (sin límite)">+ Pista</button>
+    <button data-act="zoomout" title="Alejar (-)">−</button>
+    <input type="range" id="zoom" min="4" max="300" value="60" title="Zoom de la línea de tiempo">
+    <button data-act="zoomin" title="Acercar (+)">+</button>
+    <button data-act="fit" title="Ajustar todo a la vista">Ajustar</button>
+  </div>
+  <div id="tl-main">
+    <div id="tl-heads"><div class="ruler-pad"></div><div id="heads"></div></div>
+    <div id="tl-scroll"><div id="tl-inner"><div id="ruler"></div><div id="lanes"></div><div id="playhead"></div></div></div>
+  </div>
+</section>
+
+<div id="modal" hidden><div id="modal-box"></div></div>
+<div id="toast" hidden></div>
+
+<script src="../core/model.js"></script>
+<script src="app.js"></script>
+<script src="preview.js"></script>
+<script src="inspector.js"></script>
+<script src="dialogs.js"></script>
+<script src="tracker.js"></script>
+<script src="multicam.js"></script>
+<script src="dvd.js"></script>
+<script type="module" src="title3d.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!-- MontajeMX — logo. Copyright (C) 2026 Santiago Miguel. GPL-3.0-or-later -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2a3140"/><stop offset="0.55" stop-color="#181b23"/><stop offset="1" stop-color="#0f1116"/>
+    </linearGradient>
+    <linearGradient id="m" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9af0da"/><stop offset="0.5" stop-color="#5fd4b8"/><stop offset="1" stop-color="#2fa58c"/>
+    </linearGradient>
+    <linearGradient id="ph" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff9a76"/><stop offset="1" stop-color="#ff6a4a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.42" r="0.6">
+      <stop offset="0" stop-color="#5fd4b8" stop-opacity="0.20"/><stop offset="1" stop-color="#5fd4b8" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="sq"><rect x="64" y="64" width="896" height="896" rx="208"/></clipPath>
+  </defs>
+  <rect x="64" y="64" width="896" height="896" rx="208" fill="url(#bg)"/>
+  <g clip-path="url(#sq)">
+    <rect x="64" y="64" width="896" height="896" fill="url(#glow)"/>
+    <!-- pistas de la línea de tiempo -->
+    <g opacity="0.9">
+      <rect x="200" y="760" width="250" height="34" rx="17" fill="#5fd4b8" opacity="0.30"/>
+      <rect x="474" y="760" width="150" height="34" rx="17" fill="#ff7a59" opacity="0.55"/>
+      <rect x="648" y="760" width="176" height="34" rx="17" fill="#5fd4b8" opacity="0.30"/>
+      <rect x="200" y="816" width="140" height="34" rx="17" fill="#5fd4b8" opacity="0.16"/>
+      <rect x="364" y="816" width="330" height="34" rx="17" fill="#5fd4b8" opacity="0.16"/>
+    </g>
+  </g>
+  <!-- M -->
+  <path d="M256 668 V318 L512 574 L768 318 V668" fill="none" stroke="url(#m)" stroke-width="88" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- cabezal de reproducción -->
+  <path d="M452 158 h120 a18 18 0 0 1 14 29 l-60 78 a18 18 0 0 1 -28 0 l-60 -78 a18 18 0 0 1 14 -29 z" fill="url(#ph)"/>
+  <rect x="502" y="250" width="20" height="230" rx="10" fill="url(#ph)"/>
+  <rect x="65.500" y="65.500" width="893" height="893" rx="206.500" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="3"/>
+</svg>

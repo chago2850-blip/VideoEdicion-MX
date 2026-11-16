@@ -1,0 +1,64 @@
+feature,area,priority,original,clone,notes
+Línea de tiempo multipista con pistas ilimitadas,edición,must,Ultimate (6 en Standard),yes,Botón + Pista sin límite
+Arrastrar y soltar medios; recortar; dividir; mover entre pistas,edición,must,yes,yes,Imán y cerrar huecos opcionales
+Deshacer / rehacer; copiar; pegar; duplicar,edición,must,yes,yes,80 niveles
+Atajos de teclado,edición,must,yes,partial,Fijos; aún no personalizables
+Biblioteca de medios con miniaturas y formas de onda,biblioteca,must,yes,yes,Sin etiquetas ni valoraciones todavía
+Importación de formatos comunes (MP4 MOV AVI MKV MPEG HEVC MXF WMV…),importar,must,yes,yes,Todo lo que lee FFmpeg
+Importación 4K / 8K,importar,must,Ultimate (4K),yes,Proxy automático para vista previa fluida
+Proxy inteligente,rendimiento,should,yes,yes,Automático para códecs no reproducibles y >2.6K
+Calidad de vista previa seleccionable,rendimiento,should,yes (26),yes,Rápida / Normal / Alta
+Fotogramas clave: posición; escala; rotación; opacidad; volumen,animación,must,yes,yes,Interpolación lineal; sin curvas de suavizado
+Copiar/pegar grupos de fotogramas clave,animación,could,yes (26),partial,Se copian con el clip
+Transiciones,efectos,must,cientos,partial,12 tipos: disolvencia; fundido; deslizar; zoom; barridos en 4 direcciones; morph
+Transiciones perfectas (seamless) y morph,efectos,could,Ultimate,partial,Morph = disolvencia con zoom fluido; no deforma por puntos de la imagen
+Títulos 2D con estilos y plantillas,títulos,must,yes,yes,6 plantillas; fuente; borde; sombra; fondo; animables
+Editor de títulos 3D,títulos,could,Ultimate,yes,Texto extruido con bisel; material; luz; 7 fuentes; 4 animaciones
+Etalonaje completo: exposición; contraste; saturación; tono; temperatura; gamma,color,must,Ultimate,yes,
+Ruedas de color (sombras/medios/luces),color,must,Ultimate,yes,
+Curva de tonos,color,must,Ultimate,yes,Curva maestra; falta por canal
+LUT 3D (.cube) y looks predefinidos,color,must,Ultimate,yes,12 looks + carga de .cube
+Color selectivo,color,should,yes,yes,Conserva un tono y desatura el resto
+Histograma,color,should,yes,yes,Falta vectorscopio y forma de onda
+Croma / pantalla verde,efectos,must,yes,yes,
+Modos de mezcla,efectos,must,Ultimate,yes,8 modos
+Transparencia de pista,efectos,must,yes,yes,
+Canal alfa (exportación),exportar,must,Ultimate,yes,ProRes 4444 y secuencia PNG
+Máscaras de video (forma),efectos,must,Ultimate,partial,Elipse y rectángulo con difuminado y fotogramas clave; faltan máscaras a pincel y de texto
+Censura con mosaico / desenfoque,efectos,must,Ultimate,yes,Botón Censurar
+Seguimiento de movimiento,efectos,should,Ultimate,yes,La máscara sigue al objeto; mosaico/desenfoque que lo acompaña; títulos e imágenes pueden seguir el rastro
+Seguimiento inteligente de objetos,efectos,could,Ultimate,partial,Sigue posición y tamaño por coincidencia de plantilla; no detecta la silueta del objeto
+Pantalla dividida con plantillas,efectos,must,Ultimate,yes,8 plantillas; celdas animables
+Creador de plantillas de pantalla dividida,efectos,could,Ultimate,no,Fase 2
+Imagen en imagen; recorte; volteo,efectos,must,yes,yes,
+Panorámica y zoom,efectos,must,yes,yes,Botones Zoom lento y Paneo
+Velocidad; cámara lenta/rápida; reversa; congelar fotograma,efectos,must,yes,yes,Velocidad constante; falta remapeo variable
+Desenfoque; mosaico; viñeta; grano; nitidez; reducción de ruido,efectos,must,yes,yes,
+Estabilización de imagen,efectos,should,yes,yes,Se aplica al exportar
+Corrección de lente,efectos,should,Ultimate,yes,Se aplica al exportar
+Video 360° a normal y pequeño planeta,360,should,Ultimate,partial,Conversión sí; falta visor 360 interactivo y títulos 360
+Edición multicámara (hasta 6),multicam,should,Ultimate (2 en Standard),yes,Sincronización por audio o manual; cambio de ángulo en vivo; audio maestro
+Grabación de pantalla con micrófono,captura,must,yes,yes,Audio del sistema solo en Windows
+Grabación de cámara web,captura,must,yes,yes,
+Voz en off sobre la línea de tiempo,audio,must,yes,yes,
+Stop motion con papel cebolla,captura,should,yes,yes,
+Volumen; fundidos; balance; silenciar; separar audio,audio,must,yes,yes,
+Atenuación automática (ducking),audio,must,Ultimate,yes,Basada en la presencia de clips de voz
+Tono; graves/agudos; reducción de ruido de audio,audio,should,yes,yes,Se aplican al exportar
+Mezcla 5.1,audio,could,yes,partial,Cada pista se envía a frontal; centro o traseros; LFE automático; la vista previa suena en estéreo
+Película automática (SmartMovie),asistentes,should,yes,yes,Película rápida
+Exportar MP4 H.264 / HEVC; WebM; AV1; MOV ProRes; AVI; WMV; M2TS,exportar,must,yes,yes,
+Exportar hasta 4K / 8K,exportar,must,Ultimate (4K),yes,
+GIF animado; secuencia de imágenes; solo audio,exportar,must,yes,yes,
+Instantánea de fotograma,exportar,should,yes,yes,
+MPEG-2 para DVD,disco,should,yes,yes,
+Autoría de DVD con menús,disco,could,yes (100+ plantillas en Ultimate),partial,8 plantillas; capítulos; VIDEO_TS e ISO; requiere dvdauthor instalado; no graba el disco
+Subida directa a YouTube/Vimeo,exportar,could,yes,skip,Requiere cuentas y claves en la nube
+Guardar/abrir proyecto; autoguardado; notas,proyecto,must,yes,yes,
+Paquete de proyecto y proyectos anidados,proyecto,could,yes,no,Fase 2
+Procesamiento por lotes,proyecto,could,Ultimate,no,Fase 2
+Espacio de trabajo personalizable,interfaz,could,yes,no,Fase 3
+Interfaz en español,interfaz,must,yes,yes,
+Windows; Linux; macOS,plataforma,must,solo Windows,yes,Electron + FFmpeg
+Música y efectos de sonido incluidos (ScoreFitter),contenido,skip,yes,skip,Contenido con licencia de Corel; usa tu propia música
+Efectos prémium NewBlueFX y plantillas de Corel,contenido,skip,Ultimate,skip,Contenido de terceros con licencia
