@@ -1,0 +1,1 @@
+three.js r170 (MIT) y fuentes Droid (Apache-2.0) / Gentilis (OFL) en formato typeface. Copiados de node_modules/three para que viajen dentro del paquete.
