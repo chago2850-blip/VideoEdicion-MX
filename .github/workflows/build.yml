@@ -44,12 +44,14 @@ jobs:
             dist/*.tar.gz
             dist/*.dmg
             dist/*.zip
+            !dist/*__uninstaller*
           if-no-files-found: ignore
       - if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            dist/*.exe
+            dist/MontajeMX-*-win-x64.exe
+            dist/MontajeMX-*-win-portable-x64.exe
             dist/*.AppImage
             dist/*.tar.gz
             dist/*.dmg
