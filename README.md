@@ -5,7 +5,7 @@
 Editor de video multipista libre para **Windows, Linux, macOS y Android**. Sin ediciones de pago, sin marcas de agua y sin límites de uso.
 Licencia **GPL-3.0-or-later**. Copyright © 2026 Santiago Miguel.
 
-## Qué hace (v0.3.0)
+## Qué hace (v0.3.1)
 
 - **Montaje**: pistas ilimitadas, arrastrar y soltar, recortar, dividir, imán, cerrar huecos, deshacer/rehacer, copiar/pegar, congelar fotograma, velocidad y reversa.
 - **Animación**: fotogramas clave de posición, escala, rotación, opacidad y volumen; zoom lento y paneo con un clic.
@@ -44,7 +44,7 @@ Requiere Node.js 20 o superior. En desarrollo se usa `ffmpeg-static` o el FFmpeg
 
 ```bash
 npm run dist:win     # .exe (instalador y portable) — ejecutar en Windows
-npm run dist:linux   # .AppImage y .tar.gz
+npm run dist:linux   # .AppImage, .deb, .rpm y .tar.gz (el .rpm necesita rpmbuild)
 npm run dist:mac     # .dmg — ejecutar en macOS
 ```
 

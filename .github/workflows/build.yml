@@ -32,6 +32,8 @@ jobs:
       - run: ${{ matrix.fetch }}
       - if: matrix.os == 'ubuntu-latest'
         run: npm test
+      - if: matrix.os == 'ubuntu-latest'
+        run: sudo apt-get update && sudo apt-get install -y rpm
       - run: ${{ matrix.build }}
         env:
           CSC_IDENTITY_AUTO_DISCOVERY: 'false'
@@ -42,6 +44,8 @@ jobs:
             dist/*.exe
             dist/*.AppImage
             dist/*.tar.gz
+            dist/*.deb
+            dist/*.rpm
             dist/*.dmg
             dist/*.zip
             !dist/*__uninstaller*
@@ -54,6 +58,8 @@ jobs:
             dist/MontajeMX-*-win-portable-x64.exe
             dist/*.AppImage
             dist/*.tar.gz
+            dist/*.deb
+            dist/*.rpm
             dist/*.dmg
             dist/*.zip
 
