@@ -1,8 +1,8 @@
 {
   "name": "montajemx",
   "productName": "MontajeMX",
-  "version": "0.2.0",
-  "description": "Editor de video multipista libre (GPL-3.0-or-later) para Windows, Linux y macOS",
+  "version": "0.3.0",
+  "description": "Editor de video multipista libre (GPL-3.0-or-later) para Windows, Linux, macOS y Android",
   "author": "Santiago Miguel",
   "license": "GPL-3.0-or-later",
   "main": "src/main.js",
@@ -14,13 +14,24 @@
     "dist:linux": "electron-builder --linux",
     "dist:mac": "electron-builder --mac",
     "smoke": "electron --no-sandbox test/smoke.js",
-    "fetch-ffmpeg": "node scripts/fetch-ffmpeg.js"
+    "fetch-ffmpeg": "node scripts/fetch-ffmpeg.js",
+    "android:web": "node scripts/build-android-web.js",
+    "android:sync": "node scripts/build-android-web.js && npx cap sync android",
+    "android:apk": "npm run android:sync && cd android && ./gradlew assembleRelease",
+    "test:android": "node scripts/build-android-web.js && electron --no-sandbox test/android-web.js"
   },
   "dependencies": {
     "ffmpeg-static": "^5.2.0",
     "ffprobe-static": "^3.1.0"
   },
   "devDependencies": {
+    "@capacitor/android": "^8.6.2",
+    "@capacitor/app": "^8.1.2",
+    "@capacitor/cli": "^8.6.2",
+    "@capacitor/core": "^8.6.2",
+    "@capacitor/filesystem": "^8.1.5",
+    "@capacitor/share": "^8.0.3",
+    "@ffmpeg/core": "^0.12.10",
     "electron": "^33.2.0",
     "electron-builder": "^26.18.0",
     "three": "^0.170.0"
@@ -30,6 +41,7 @@
     "productName": "MontajeMX",
     "files": [
       "src/**/*",
+      "!src/android/**",
       "LICENSE",
       "package.json",
       "!node_modules/**"

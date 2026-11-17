@@ -1,0 +1,11 @@
+{
+  "appId": "mx.montaje.editor",
+  "appName": "MontajeMX",
+  "webDir": "www",
+  "android": {
+    "allowMixedContent": false,
+    "captureInput": true,
+    "webContentsDebuggingEnabled": false,
+    "backgroundColor": "#14161b"
+  }
+}

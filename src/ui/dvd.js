@@ -61,7 +61,7 @@ const Dvd = (() => {
     const go = h('button', { class: 'primary', onclick: build }, 'Crear DVD'), cancel = h('button', { onclick: () => (busy ? api.invoke('export:cancel') : Dialogs.close()) }, 'Cerrar');
     let busy = false;
     const missing = !tools.dvdauthor || !tools.spumux;
-    const how = tools.platform === 'darwin' ? 'En macOS: brew install dvdauthor' : tools.platform === 'win32' ? 'En Windows: instala dvdauthor (por ejemplo con MSYS2 o los binarios de dvdauthor para Windows) y añádelo al PATH' : 'En Linux: sudo apt install dvdauthor genisoimage';
+    const how = tools.platform === 'android' ? 'En Android se crea el video MPEG-2 listo para DVD; para el menú y la carpeta VIDEO_TS ábrelo en MontajeMX de escritorio' : tools.platform === 'darwin' ? 'En macOS: brew install dvdauthor' : tools.platform === 'win32' ? 'En Windows: instala dvdauthor (por ejemplo con MSYS2 o los binarios de dvdauthor para Windows) y añádelo al PATH' : 'En Linux: sudo apt install dvdauthor genisoimage';
     async function build() {
       const outDir = await api.invoke('dvd:pickDir'); if (!outDir) return;
       const menu = repaint(); busy = true; Dialogs.closable = false; go.disabled = true; bar.hidden = false; cancel.textContent = 'Cancelar';

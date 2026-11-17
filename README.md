@@ -2,10 +2,10 @@
 
 # MontajeMX
 
-Editor de video multipista libre para **Windows, Linux y macOS**. Sin ediciones de pago, sin marcas de agua y sin límites de uso.
+Editor de video multipista libre para **Windows, Linux, macOS y Android**. Sin ediciones de pago, sin marcas de agua y sin límites de uso.
 Licencia **GPL-3.0-or-later**. Copyright © 2026 Santiago Miguel.
 
-## Qué hace (v0.2.0)
+## Qué hace (v0.3.0)
 
 - **Montaje**: pistas ilimitadas, arrastrar y soltar, recortar, dividir, imán, cerrar huecos, deshacer/rehacer, copiar/pegar, congelar fotograma, velocidad y reversa.
 - **Animación**: fotogramas clave de posición, escala, rotación, opacidad y volumen; zoom lento y paneo con un clic.
@@ -48,8 +48,27 @@ npm run dist:linux   # .AppImage y .tar.gz
 npm run dist:mac     # .dmg — ejecutar en macOS
 ```
 
-El flujo `.github/workflows/build.yml` compila los tres al publicar una etiqueta `v*` y los adjunta a la *release*.
+El flujo `.github/workflows/build.yml` compila los tres, más el APK de Android, al publicar una etiqueta `v*` y los adjunta a la *release*.
 Los instaladores no van firmados: en macOS hay que abrir la app con clic derecho → Abrir la primera vez; en Windows, SmartScreen pedirá confirmación.
+
+## Android
+
+La versión Android usa la misma interfaz y el mismo motor de render; FFmpeg corre dentro de la app en WebAssembly, sin conexión.
+Descarga `MontajeMX-<versión>-android.apk` de la *release*, ábrelo en el teléfono o tableta y permite instalar apps de origen desconocido.
+
+- Pensada para tableta o teléfono en horizontal (Android 7 o superior). Doble toque en un medio lo añade a la línea de tiempo.
+- Los medios importados se guardan dentro de la app; las exportaciones, instantáneas y proyectos van a **Documentos/MontajeMX**, y «Mostrar en la carpeta» abre el menú Compartir.
+- Exporta MP4 H.264, WebM (VP8), MOV ProRes, AVI, WMV, M2TS, MPEG-2 para DVD, GIF, secuencias y audio. HEVC y AV1 solo en escritorio; el DVD con menú y la grabación de pantalla, también.
+- Al no tener varios hilos, exportar es más lento que en la computadora: conviene usar 720p para pruebas rápidas.
+
+Compilar el APK (requiere JDK 21 y Android SDK):
+
+```bash
+npm run android:apk        # → android/app/build/outputs/apk/release/app-release.apk
+npm run test:android       # prueba el puente en Chromium con FFmpeg WebAssembly
+```
+
+Para firmar siempre con la misma llave (y poder actualizar sin desinstalar), añade en GitHub los secretos `ANDROID_KEYSTORE_BASE64` y `ANDROID_KEYSTORE_PASSWORD`; sin ellos el APK se firma con una llave de depuración.
 
 ## Pruebas
 
@@ -66,6 +85,8 @@ npm run smoke    # arranca la app, monta un proyecto, reproduce y exporta
 | `src/core/render.js` | convierte el proyecto en un grafo de filtros de FFmpeg |
 | `src/main.js` | proceso principal: archivos, FFmpeg, proxies, exportación, grabaciones |
 | `src/ui/` | interfaz: biblioteca, visor en tiempo real, inspector y línea de tiempo |
+| `src/android/` | puente para Android: sustituye al proceso principal (almacén en IndexedDB, FFmpeg WebAssembly en un worker) |
+| `android/` | proyecto Capacitor que empaqueta la interfaz como APK |
 
 La vista previa y la exportación usan las mismas fórmulas; el color pasa por una misma LUT 3D en ambos lados. Los efectos que solo se aplican al exportar se revisan con **Fotograma exacto**.
 

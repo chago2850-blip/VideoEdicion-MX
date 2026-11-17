@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">MontajeMX</string>
+    <string name="title_activity_main">MontajeMX</string>
+    <string name="package_name">mx.montaje.editor</string>
+    <string name="custom_url_scheme">mx.montaje.editor</string>
+</resources>

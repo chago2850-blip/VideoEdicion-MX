@@ -1,0 +1,10 @@
+/* MontajeMX — ajustes de la interfaz para pantallas táctiles (Android). GPL-3.0-or-later. */
+/* Las zonas que se arrastran no deben desplazar ni hacer zoom a la página. */
+#ruler, #lanes, #view, #stage canvas, .mc-bar, #insp canvas { touch-action: none; }
+#tl-scroll { touch-action: pan-x pan-y; -webkit-overflow-scrolling: touch; }
+/* Botones y deslizadores un poco más grandes para el dedo. */
+button, select { min-height: 32px; }
+input[type=range] { min-height: 26px; }
+#lib-body .item { -webkit-touch-callout: none; }
+/* Sin resaltado azul al tocar. */
+* { -webkit-tap-highlight-color: transparent; }

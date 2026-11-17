@@ -17,7 +17,7 @@ function h(tag, attrs, ...kids) {
 }
 const S = { p: MMX.newProject(), file: null, dirty: false, sel: null, t: 0, playing: false, zoom: 60, undo: [], redo: [], snap: true, ripple: false, tab: 'medios', clipboard: null, proxying: {}, info: null };
 const TRACK_H = 54;
-const mediaUrl = (f) => 'mmx://app/media?p=' + encodeURIComponent(f);
+const mediaUrl = (f) => (api.mediaUrl ? api.mediaUrl(f) : 'mmx://app/media?p=' + encodeURIComponent(f));
 const fmtDur = (s) => { s = Math.max(0, s); const m = Math.floor(s / 60); return m + ':' + String(Math.floor(s % 60)).padStart(2, '0'); };
 function timecode(t) { const f = S.p.fps, fr = Math.round(t * f), ff = Math.round(f); const p2 = (v) => String(v).padStart(2, '0'); return `${p2(Math.floor(fr / ff / 3600))}:${p2(Math.floor(fr / ff / 60) % 60)}:${p2(Math.floor(fr / ff) % 60)}:${p2(fr % ff)}`; }
 function toast(msg, ms) { const t = $('#toast'); t.textContent = msg; t.hidden = false; clearTimeout(toast.h); toast.h = setTimeout(() => { t.hidden = true; }, ms || 2600); }
