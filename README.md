@@ -5,7 +5,7 @@
 Editor de video multipista libre para **Windows, Linux, macOS y Android**. Sin ediciones de pago, sin marcas de agua y sin límites de uso.
 Licencia **GPL-3.0-or-later**. Copyright © 2026 Santiago Miguel.
 
-## Qué hace (v0.3.1)
+## Qué hace (v0.3.2)
 
 - **Montaje**: pistas ilimitadas, arrastrar y soltar, recortar, dividir, imán, cerrar huecos, deshacer/rehacer, copiar/pegar, congelar fotograma, velocidad y reversa.
 - **Animación**: fotogramas clave de posición, escala, rotación, opacidad y volumen; zoom lento y paneo con un clic.

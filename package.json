@@ -1,7 +1,7 @@
 {
   "name": "montajemx",
   "productName": "MontajeMX",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Editor de video multipista libre (GPL-3.0-or-later) para Windows, Linux, macOS y Android",
   "author": {
     "name": "Santiago Miguel",
@@ -76,7 +76,7 @@
         "tar.gz"
       ],
       "category": "AudioVideo",
-      "icon": "build/icon.png",
+      "icon": "build/icons",
       "extraResources": [
         {
           "from": "vendor/bin/linux-${arch}",
@@ -86,7 +86,8 @@
       "maintainer": "Santiago Miguel <chago2850@gmail.com>",
       "synopsis": "Editor de video multipista libre",
       "description": "Editor de video multipista libre (GPL-3.0-or-later): montaje, color, efectos, títulos 3D, multicámara, DVD y exportación a muchos formatos.",
-      "executableName": "montajemx"
+      "executableName": "montajemx",
+      "syncDesktopName": true
     },
     "mac": {
       "target": [
@@ -148,5 +149,6 @@
       "packageCategory": "AudioVideo"
     }
   },
-  "homepage": "https://github.com/chago2850-blip/VideoEdicion-MX"
+  "homepage": "https://github.com/chago2850-blip/VideoEdicion-MX",
+  "desktopName": "montajemx.desktop"
 }
